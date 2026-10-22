@@ -84,10 +84,10 @@ WPF-приложение для учёта продаж сети кофеен. �
 **Требуется:** Windows, Visual Studio 2019/2022 (разработка классических приложений .NET), Microsoft SQL Server (Express/LocalDB) и SSMS.
 Для экспорта в Word и Excel нужен установленный Microsoft Office.
 
-1. Откройте `db/schema.sql` в SSMS, замените `Surname` на фамилию латиницей (Ctrl+H → «Заменить все») и выполните скрипт (F5).
-   База `DB_<Фамилия>_CoffeeShop` создаётся заново вместе с тестовыми данными.
-2. Откройте решение `<ИмяПроекта>.sln` в Visual Studio, дождитесь восстановления NuGet-пакетов (EntityFramework 6).
-3. В `App.config` проверьте строку подключения `Entities`: имя сервера (`data source`) и базу (`initial catalog=DB_<Фамилия>_CoffeeShop`).
+1. Откройте `db/schema.sql` в SSMS и выполните скрипт (F5).
+   База создаётся заново вместе с тестовыми данными.
+2. Откройте решение `<UP_Denisov_Coffeeshop>.sln` в Visual Studio, дождитесь восстановления NuGet-пакетов (EntityFramework 6).
+3. В `App.config` проверьте строку подключения `Entities`: имя сервера (`data source`) и базу (`initial catalog=DB_Denisov_CoffeeShop`).
 4. Соберите и запустите проект (F5).
 
 ## Тестовые учётные записи
