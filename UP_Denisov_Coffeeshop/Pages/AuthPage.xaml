@@ -1,0 +1,44 @@
+﻿<Page x:Class="UP_Denisov_Coffeeshop.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:h="clr-namespace:UP_Denisov_Coffeeshop.Helpers"
+      Title="Авторизация">
+    <Border Width="400" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="24"
+            CornerRadius="8" BorderThickness="1"
+            Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderBrushMain}">
+        <StackPanel>
+            <TextBlock Text="Вход в систему" FontSize="22" FontWeight="Bold"
+                       HorizontalAlignment="Center" Margin="0,0,0,12"/>
+
+            <StackPanel x:Name="LoginPanel">
+                <TextBox x:Name="TbLogin" MaxLength="50" h:Placeholder.Text="Логин"
+                         ToolTip="Введите логин (латиница, цифры, «_»)"/>
+                <PasswordBox x:Name="PbPassword" MaxLength="50" h:Placeholder.Text="Пароль"
+                             ToolTip="Введите пароль"/>
+                <Button x:Name="BtnEnter" Content="Вход" IsDefault="True"
+                        ToolTip="Войти в систему" Click="BtnEnter_Click"/>
+                <Button x:Name="BtnReg" Content="Регистрация"
+                        ToolTip="Создать новую учётную запись" Click="BtnReg_Click"/>
+                <Button x:Name="BtnChangePass" Content="Смена пароля"
+                        ToolTip="Изменить пароль существующего пользователя" Click="BtnChangePass_Click"/>
+            </StackPanel>
+
+            <StackPanel x:Name="CaptchaPanel" Visibility="Collapsed">
+                <TextBlock Text="Слишком много неверных попыток. Введите символы с картинки:"
+                           TextWrapping="Wrap" Margin="4,0,4,8"/>
+                <TextBox x:Name="TbCaptcha" IsReadOnly="True" Focusable="False" IsHitTestVisible="False"
+                         ContextMenu="{x:Null}" Height="60" FontSize="30" FontWeight="Bold" FontStyle="Italic"
+                         HorizontalContentAlignment="Center"
+                         Foreground="{DynamicResource DangerBrush}"
+                         CommandManager.PreviewExecuted="Clipboard_PreviewExecuted"/>
+                <TextBox x:Name="TbCaptchaInput" MaxLength="6" ContextMenu="{x:Null}"
+                         h:Placeholder.Text="Введите символы" ToolTip="Вставка из буфера обмена запрещена"
+                         CommandManager.PreviewExecuted="Clipboard_PreviewExecuted"/>
+                <Button x:Name="BtnCaptchaOk" Content="Подтвердить"
+                        ToolTip="Проверить введённые символы" Click="BtnCaptchaOk_Click"/>
+                <Button x:Name="BtnCaptchaRefresh" Content="Обновить капчу"
+                        ToolTip="Сгенерировать новые символы" Click="BtnCaptchaRefresh_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Page>

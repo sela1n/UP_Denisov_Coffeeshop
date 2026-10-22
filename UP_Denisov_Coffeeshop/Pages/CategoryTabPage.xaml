@@ -1,0 +1,38 @@
+﻿<Page x:Class="UP_Denisov_Coffeeshop.Pages.CategoryTabPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:h="clr-namespace:UP_Denisov_Coffeeshop.Helpers"
+      Title="Администратор: категории">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="TbSearch" Width="280" HorizontalAlignment="Left" Margin="8,8,8,0"
+                 h:Placeholder.Text="Поиск по названию" ToolTip="Введите часть названия категории"
+                 TextChanged="TbSearch_TextChanged"/>
+
+        <DataGrid x:Name="DataGridCategory" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="80"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
+                <DataGridTemplateColumn Header="Действие" Width="190" CanUserSort="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Margin="2" ToolTip="Редактировать запись"
+                                    Click="ButtonEdit_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,6">
+            <Button x:Name="BtnAdd" Content="Добавить" ToolTip="Добавить категорию" Click="BtnAdd_Click"/>
+            <Button x:Name="BtnDelete" Content="Удалить" Style="{StaticResource DangerButton}"
+                    ToolTip="Удалить выделенные категории (вместе с их продажами)" Click="BtnDelete_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

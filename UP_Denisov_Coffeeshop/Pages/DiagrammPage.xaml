@@ -1,0 +1,33 @@
+﻿<Page x:Class="UP_Denisov_Coffeeshop.Pages.DiagrammPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+      xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+      Title="Диаграммы и отчёты">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Margin="8,8,8,0">
+            <ComboBox x:Name="CbUser" Width="280" DisplayMemberPath="FIO"
+                      ToolTip="Сотрудник, чьи продажи показаны на диаграмме"
+                      SelectionChanged="UpdateChart"/>
+            <ComboBox x:Name="CbChartType" Width="180" ToolTip="Тип диаграммы"
+                      SelectionChanged="UpdateChart"/>
+            <Button x:Name="BtnWord" Content="Экспорт в Word"
+                    ToolTip="Отчёт по всем сотрудникам: .docx и .pdf" Click="BtnWord_Click"/>
+            <Button x:Name="BtnExcel" Content="Экспорт в Excel"
+                    ToolTip="Отчёт по всем сотрудникам: .xlsx" Click="BtnExcel_Click"/>
+        </WrapPanel>
+
+        <wfi:WindowsFormsHost Grid.Row="1" Margin="8">
+            <charts:Chart x:Name="ChartPayments">
+                <charts:Chart.Legends>
+                    <charts:Legend/>
+                </charts:Chart.Legends>
+            </charts:Chart>
+        </wfi:WindowsFormsHost>
+    </Grid>
+</Page>

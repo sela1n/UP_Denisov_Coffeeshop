@@ -1,0 +1,1 @@
+Скачайте Open Sans (Google Fonts) и положите .ttf сюда, Build Action = Resource.

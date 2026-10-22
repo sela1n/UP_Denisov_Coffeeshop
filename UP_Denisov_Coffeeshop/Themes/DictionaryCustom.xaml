@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Themes/Controls.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <SolidColorBrush x:Key="BgBrush"          Color="#2B1D14"/>
+    <SolidColorBrush x:Key="SurfaceBrush"     Color="#3A2A1F"/>
+    <SolidColorBrush x:Key="InputBrush"       Color="#FBF3E8"/>
+    <SolidColorBrush x:Key="InputTextBrush"   Color="#2B1D14"/>
+    <SolidColorBrush x:Key="TextBrush"        Color="#F3E7D8"/>
+    <SolidColorBrush x:Key="HeaderBrush"      Color="#1B120C"/>
+    <SolidColorBrush x:Key="HeaderTextBrush"  Color="#F3E7D8"/>
+    <SolidColorBrush x:Key="AccentBrush"      Color="#C8873E"/>
+    <SolidColorBrush x:Key="ButtonTextBrush"  Color="#1B120C"/>
+    <SolidColorBrush x:Key="BorderBrushMain"  Color="#8A6A4F"/>
+    <SolidColorBrush x:Key="MutedBrush"       Color="#8F7B6A"/>
+    <SolidColorBrush x:Key="RowAltBrush"      Color="#F1E4D3"/>
+    <SolidColorBrush x:Key="DangerBrush"      Color="#D9534F"/>
+</ResourceDictionary>

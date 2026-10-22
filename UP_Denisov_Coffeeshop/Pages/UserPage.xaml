@@ -1,0 +1,60 @@
+﻿<Page x:Class="UP_Denisov_Coffeeshop.Pages.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:h="clr-namespace:UP_Denisov_Coffeeshop.Helpers"
+      Title="Сотрудники сети кофеен">
+    <Page.Resources>
+        <h:PhotoConverter x:Key="PhotoConverter"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Center" Margin="8">
+            <TextBox x:Name="TbSearch" Width="260" h:Placeholder.Text="Поиск по ФИО"
+                     ToolTip="Введите часть ФИО" TextChanged="TbSearch_TextChanged"/>
+            <ComboBox x:Name="CbSort" Width="200" SelectedIndex="0" ToolTip="Порядок сортировки по ФИО"
+                      SelectionChanged="CbSort_SelectionChanged">
+                <ComboBoxItem Content="ФИО: от А до Я"/>
+                <ComboBoxItem Content="ФИО: от Я до А"/>
+            </ComboBox>
+            <CheckBox x:Name="CbOnlyAdmin" Content="Только администраторы"
+                      ToolTip="Показать только пользователей с ролью Admin"
+                      Checked="CbOnlyAdmin_Changed" Unchecked="CbOnlyAdmin_Changed"/>
+            <Button x:Name="BtnClear" Content="Сбросить" ToolTip="Сбросить поиск и фильтры" Click="BtnClear_Click"/>
+        </WrapPanel>
+
+        <ListView x:Name="ListUser" Grid.Row="1" HorizontalContentAlignment="Center"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Width="220" Margin="6" Padding="8" CornerRadius="8" BorderThickness="1"
+                            Background="{DynamicResource SurfaceBrush}"
+                            BorderBrush="{DynamicResource BorderBrushMain}">
+                        <StackPanel>
+                            <Border Height="200" CornerRadius="6" ClipToBounds="True">
+                                <Image Stretch="UniformToFill"
+                                       Source="{Binding Photo, Converter={StaticResource PhotoConverter}}"/>
+                            </Border>
+                            <TextBlock Text="{Binding FIO}" TextWrapping="Wrap" TextAlignment="Center"
+                                       FontWeight="Bold" FontSize="16" Margin="0,8,0,0"
+                                       Foreground="{DynamicResource TextBrush}"/>
+                            <TextBlock Text="{Binding Role}" TextAlignment="Center"
+                                       Foreground="{DynamicResource MutedBrush}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBlock x:Name="TbInfo" Grid.Row="2" HorizontalAlignment="Center" Margin="6"/>
+    </Grid>
+</Page>
